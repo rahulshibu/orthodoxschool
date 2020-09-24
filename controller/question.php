@@ -106,7 +106,7 @@ class Question extends AuthController
 
     public function sendMail($email, $subject, $link)
     {
-
+    var_dump(123);die;
         $curl = curl_init();
         $url = 'http://52.66.147.101/obs/mail/index.php';
 
