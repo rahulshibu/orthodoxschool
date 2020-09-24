@@ -33,6 +33,7 @@ class Question extends AuthController {
             }
 		    unset($_POST['sendEmail']);
         }
+        var_dump($_POST);die;
 		$id            = $Question->save($_POST);
 		$isSuccess     = ($id > 0);
 		return $this->renderJson(["isSuccess" => $isSuccess, "id" => $id]);
