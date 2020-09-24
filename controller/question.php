@@ -4,7 +4,7 @@ if (strpos($_SERVER['REQUEST_URI'], basename(__FILE__)) !== false) {die('Invalid
 include_once("basecontroller.php");
 include_once("model/question.php");
 //include_once("c/m.php");
-//include ('./controller/Email.php');
+include ('./controller/Email.php');
 
 class Question extends AuthController
 {
@@ -34,7 +34,7 @@ class Question extends AuthController
             $result = json_decode($this->getQuestionDetailsById(), true);
             if (isset($result) && isset($result[0])) {
 //                var_dump($this->emailContent($result[0]['name'], $result[0]['question'], $_POST['answer']));die;
-                $this->sendMail($result[0]['email'], 'Orthodox Bible School Question Reply', $this->emailContent($result[0]['name'], $result[0]['question'], $_POST['answer']));
+                Email::sendMail($result[0]['email'], 'Orthodox Bible School Question Reply', $this->emailContent($result[0]['name'], $result[0]['question'], $_POST['answer']));
             }
             unset($_POST['sendEmail']);
         }
@@ -106,9 +106,8 @@ class Question extends AuthController
 
     public function sendMail($email, $subject, $link)
     {
-        $curl = curl_init();
 
-        var_dump(123);die;
+        $curl = curl_init();
         $url = 'http://52.66.147.101/obs/mail/index.php';
 
         curl_setopt_array($curl, array(
