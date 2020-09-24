@@ -24,7 +24,6 @@ class Question extends AuthController {
 	
 	public function saveQuestion() {
 		$Question = new QuestionModel();
-        var_dump($_POST);die;
 
         if (isset($_POST['sendEmail']) && $_POST['sendEmail']){
 		    $_GET['id']=$_POST['id'];
