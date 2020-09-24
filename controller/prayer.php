@@ -32,9 +32,7 @@ class Prayer extends AuthController {
 	public function getPrayer() {
 		$id       = (isset($_GET["prayerType"])) ? $_GET["prayerType"] : 0;
 		$prayer   = new PrayerModel();
-//		var_dump($id);die;
 		$response = $prayer->get($id);
-		var_dump($response);die;
 		return $this->renderJson($response);
 	}
 	
