@@ -1,0 +1,20 @@
+CREATE TABLE `orthodox_obs`.`faq` (
+  `id` INT  NOT NULL AUTO_INCREMENT,
+  `question` VARCHAR(1000) NULL,
+  `answer` VARCHAR(1000) NULL,
+  `createdDate` DATETIME NULL DEFAULT NULL,
+  `updatedDate` DATETIME NULL DEFAULT NULL,
+  PRIMARY KEY (`id`));
+
+
+CREATE TABLE `orthodox_obs`.`question` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(100) NULL DEFAULT NULL,
+  `phone` VARCHAR(100) NULL DEFAULT '',
+  `email` VARCHAR(100) NULL DEFAULT '',
+  `address` VARCHAR(255) NULL DEFAULT '',
+  `question` VARCHAR(1000) NULL DEFAULT '',
+  `answer` VARCHAR(1000) NULL DEFAULT '',
+  `createdDate` DATETIME NULL DEFAULT NULL,
+  `updatedDate` DATETIME NULL DEFAULT NULL,
+  PRIMARY KEY (`id`));

@@ -1,0 +1,49 @@
+Time : 10:59:49
+SQLSTATE[22001]: String data, right truncated: 1406 Data too long for column 'answer' at row 1
+Raw SQL : INSERT INTO faq (question,answer,createdDate,updatedDate) VALUES ('test the question here ?','All three of the declarations in the previous paragraph (the first pair of which come, respectively, from sources within Purdue University and Stanford University, two of the most prestigious institutions of higher learning in the United States), and any similarly quantitative statements, are wrong. The correct answer is that a paragraph has to be long enough to reach its end.
+
+Like this one.
+
+A paragraph can be as long or as short as you want it to be. It can unfold for countless pages or consist of one word — even one letter.
+
+W-
+
+(I meant to write, “Wait!” but was interrupted.)n 
+
+The determination to make in composing a given paragraph is not the number of sentences or words or letters, but the number of ideas. The rule of thumb — in nonfiction, at least — is that each paragraph should focus on one idea or concept; when you shift to a new idea, shift to a new paragraph. (In fiction, its function is more nebulous: A paragraph is a unit of writing that further develops a story through exposition.)','2020-09-19 10:59:49','2020-09-19 10:59:49');
+
+Time : 10:59:45
+SQLSTATE[22001]: String data, right truncated: 1406 Data too long for column 'answer' at row 1
+Raw SQL : INSERT INTO faq (question,answer,createdDate,updatedDate) VALUES ('test the question here ?','All three of the declarations in the previous paragraph (the first pair of which come, respectively, from sources within Purdue University and Stanford University, two of the most prestigious institutions of higher learning in the United States), and any similarly quantitative statements, are wrong. The correct answer is that a paragraph has to be long enough to reach its end.
+
+Like this one.
+
+A paragraph can be as long or as short as you want it to be. It can unfold for countless pages or consist of one word — even one letter.
+
+W-
+
+(I meant to write, “Wait!” but was interrupted.)n 
+
+The determination to make in composing a given paragraph is not the number of sentences or words or letters, but the number of ideas. The rule of thumb — in nonfiction, at least — is that each paragraph should focus on one idea or concept; when you shift to a new idea, shift to a new paragraph. (In fiction, its function is more nebulous: A paragraph is a unit of writing that further develops a story through exposition.)','2020-09-19 10:59:45','2020-09-19 10:59:45');
+
+Time : 10:59:37
+SQLSTATE[22001]: String data, right truncated: 1406 Data too long for column 'answer' at row 1
+Raw SQL : INSERT INTO faq (question,answer,createdDate,updatedDate) VALUES ('test the question here ?','All three of the declarations in the previous paragraph (the first pair of which come, respectively, from sources within Purdue University and Stanford University, two of the most prestigious institutions of higher learning in the United States), and any similarly quantitative statements, are wrong. The correct answer is that a paragraph has to be long enough to reach its end.
+
+Like this one.
+
+A paragraph can be as long or as short as you want it to be. It can unfold for countless pages or consist of one word — even one letter.
+
+W-
+
+(I meant to write, “Wait!” but was interrupted.)n 
+
+The determination to make in composing a given paragraph is not the number of sentences or words or letters, but the number of ideas. The rule of thumb — in nonfiction, at least — is that each paragraph should focus on one idea or concept; when you shift to a new idea, shift to a new paragraph. (In fiction, its function is more nebulous: A paragraph is a unit of writing that further develops a story through exposition.)','2020-09-19 10:59:37','2020-09-19 10:59:37');
+
+Time : 10:48:27
+SQLSTATE[HY000]: General error: 1364 Field 'id' doesn't have a default value
+Raw SQL : INSERT INTO faq (question,answer,createdDate,updatedDate) VALUES ('test','test','2020-09-19 10:48:27','2020-09-19 10:48:27');
+
+Time : 10:48:17
+SQLSTATE[HY000]: General error: 1364 Field 'id' doesn't have a default value
+Raw SQL : INSERT INTO faq (question,answer,createdDate,updatedDate) VALUES ('test','test','2020-09-19 10:48:17','2020-09-19 10:48:17');

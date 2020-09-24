@@ -1,0 +1,20 @@
+Time : 10:09:57
+SQLSTATE[HY000] [1045] Access denied for user 'orthodox_obsuser'@'localhost' (using password: YES)
+
+Time : 10:09:06
+SQLSTATE[HY000] [1045] Access denied for user 'orthodox_obsuser'@'localhost' (using password: YES)
+
+Time : 10:09:00
+SQLSTATE[HY000] [1045] Access denied for user 'orthodox_obsuser'@'localhost' (using password: YES)
+
+Time : 10:08:18
+SQLSTATE[HY000] [1045] Access denied for user 'orthodox_obsuser'@'localhost' (using password: YES)
+
+Time : 10:08:08
+SQLSTATE[HY000] [1045] Access denied for user 'orthodox_obsuser'@'localhost' (using password: YES)
+
+Time : 10:07:55
+SQLSTATE[HY000] [1045] Access denied for user 'orthodox_obsuser'@'localhost' (using password: YES)
+
+Time : 09:27:59
+SQLSTATE[HY000] [1045] Access denied for user 'orthodox_obsuser'@'localhost' (using password: YES)

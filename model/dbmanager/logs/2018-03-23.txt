@@ -1,0 +1,29 @@
+Time : 07:31:05
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'NaN' in 'where clause'
+
+Time : 07:13:03
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'NaN' in 'where clause'
+
+Time : 07:10:00
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'NaN' in 'where clause'
+
+Time : 07:09:44
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'NaN' in 'where clause'
+
+Time : 07:05:12
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'NaN' in 'where clause'
+
+Time : 07:04:50
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'NaN' in 'where clause'
+
+Time : 07:04:06
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'NaN' in 'where clause'
+
+Time : 07:00:02
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'NaN' in 'where clause'
+
+Time : 06:59:47
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'NaN' in 'where clause'
+
+Time : 06:59:37
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'NaN' in 'where clause'

@@ -1,0 +1,8 @@
+Time : 15:23:05
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'orthodox_obs.bibleWords' doesn't exist
+
+Time : 15:22:24
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'orthodox_obs.bibleWords' doesn't exist
+
+Time : 15:22:13
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'orthodox_obs.bibleWords' doesn't exist

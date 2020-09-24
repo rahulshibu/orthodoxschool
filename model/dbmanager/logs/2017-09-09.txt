@@ -1,0 +1,2 @@
+Time : 15:47:32
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'undefined' in 'where clause'
