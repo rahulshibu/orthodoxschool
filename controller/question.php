@@ -28,6 +28,7 @@ class Question extends AuthController {
         if (isset($_POST['sendEmail']) && $_POST['sendEmail']){
 		    $_GET['id']=$_POST['id'];
 		    $result =json_decode($this->getQuestionDetailsById(),true);
+		    var_dump($result);die;
 		    if (isset($result) && isset($result[0])){
                Email::sendMail($result[0]['email'],'Orthodox Bible School Question Reply',$this->emailContent($result[0]['name'],$result[0]['question'],$_POST['answer']));
             }
