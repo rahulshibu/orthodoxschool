@@ -21,7 +21,7 @@ class Email
 
     public static function sendMail($email,$subject,$link){
         $curl = curl_init();
-        $url = self::URL().'/obs/mail/index.php';
+        $url = 'http://52.66.147.101/obs/mail/index.php';
         var_dump($url);die;
 
         curl_setopt_array($curl, array(
