@@ -33,6 +33,7 @@ class Question extends AuthController
             $_GET['id'] = $_POST['id'];
             $result = json_decode($this->getQuestionDetailsById(), true);
             if (isset($result) && isset($result[0])) {
+                var_dump($this->emailContent($result[0]['name'], $result[0]['question'], $_POST['answer']));die;
                 $this->sendMail($result[0]['email'], 'Orthodox Bible School Question Reply', $this->emailContent($result[0]['name'], $result[0]['question'], $_POST['answer']));
             }
             unset($_POST['sendEmail']);
@@ -107,8 +108,6 @@ class Question extends AuthController
     {
         $curl = curl_init();
         $url = 'http://52.66.147.101/obs/mail/index.php';
-        var_dump($url);
-        die;
 
         curl_setopt_array($curl, array(
             CURLOPT_URL => $url,
