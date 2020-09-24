@@ -33,13 +33,10 @@ class Question extends AuthController
             $_GET['id'] = $_POST['id'];
             $result = json_decode($this->getQuestionDetailsById(), true);
             if (isset($result) && isset($result[0])) {
-//                var_dump($this->emailContent($result[0]['name'], $result[0]['question'], $_POST['answer']));die;
                 Email::sendMail($result[0]['email'], 'Orthodox Bible School Question Reply', $this->emailContent($result[0]['name'], $result[0]['question'], $_POST['answer']));
             }
             unset($_POST['sendEmail']);
         }
-        var_dump($_POST);
-        die;
         $id = $Question->save($_POST);
         $isSuccess = ($id > 0);
         return $this->renderJson(["isSuccess" => $isSuccess, "id" => $id]);
@@ -101,44 +98,6 @@ class Question extends AuthController
             </body>
             </html>";
         return $email;
-    }
-
-
-    public function sendMail($email, $subject, $link)
-    {
-
-        $curl = curl_init();
-        $url = 'http://52.66.147.101/obs/mail/index.php';
-
-        curl_setopt_array($curl, array(
-            CURLOPT_URL => $url,
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => "",
-            CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 0,
-            CURLOPT_FOLLOWLOCATION => true,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => "POST",
-            CURLOPT_POSTFIELDS => array('email' => $email, 'subject' => $subject, 'link' => $link, 'type' => '1'),
-            CURLOPT_HTTPHEADER => array(
-                "Cookie: PHPSESSID=ggcj82ocvhbktrqsfa83qkq7r1"
-            ),
-        ));
-
-        $response = curl_exec($curl);
-
-        curl_close($curl);
-//        echo $response;
-    }
-
-
-    public function URL()
-    {
-        return sprintf(
-            "%s://%s",
-            isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http',
-            $_SERVER['SERVER_NAME']
-        );
     }
 }
 ?>
