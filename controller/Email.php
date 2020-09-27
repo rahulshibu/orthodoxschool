@@ -41,6 +41,7 @@ class Email
         $response = curl_exec($curl);
 
         curl_close($curl);
+        file_put_contents('log_email.txt', json_encode(['email'=>$email,$subject=>$subject,'status'=>$response]) . "\n", FILE_APPEND);
 //        echo $response;
     }
 

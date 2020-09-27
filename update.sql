@@ -18,3 +18,15 @@ CREATE TABLE `orthodox_obs`.`question` (
   `createdDate` DATETIME NULL DEFAULT NULL,
   `updatedDate` DATETIME NULL DEFAULT NULL,
   PRIMARY KEY (`id`));
+
+CREATE TABLE `orthodox_obs`.`prayer_request` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(100) NULL DEFAULT NULL,
+  `phone` VARCHAR(100) NULL DEFAULT '',
+  `email` VARCHAR(100) NULL DEFAULT '',
+  `subject` VARCHAR(255) NULL DEFAULT '',
+  `message` VARCHAR(1000) NULL DEFAULT '',
+  `status` INT DEFAULT 2,
+  `createdDate` DATETIME NULL DEFAULT NULL,
+  `updatedDate` DATETIME NULL DEFAULT NULL,
+  PRIMARY KEY (`id`));

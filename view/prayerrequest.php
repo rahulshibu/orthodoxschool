@@ -1,4 +1,4 @@
-<h3 class="header-style">Bible Q & A</h3>
+<h3 class="header-style">Prayer Requests</h3>
 <div class="row">
 	<div class="col-lg-12">
 		<div class="row" id="faq-form-container" style="display: none;">
@@ -52,7 +52,7 @@
 		</div>
 		<div class="row">
 			<div class="col-lg-12"><br/>
-				<label>Bible Q & A</label>
+				<label>Prayer Requests</label>
 				<div id="faqGridWrapper">
 					Loading...
 				</div><br/><br/>
@@ -81,7 +81,7 @@
 	}
 	function saveFAQ() {
 		if($("#answer").val() != ''){
-			var link =  __BASE_PATH + 'question/saveQuestion/';
+			var link =  __BASE_PATH + 'prayerrequest/saveRequest/';
 			$.ajax({
 				type: 'POST',
 				url: link,
@@ -101,8 +101,8 @@
 			alert("Please enter the mandatory fields.");
 		}
 	}
-	function loadfaq(){		
-		var link =  __BASE_PATH + 'question/getQuestion/';
+	function loadfaq(){
+		var link =  __BASE_PATH + 'prayerrequest/getRequest/';
 		console.log(link)
 		$.ajax({
 			type: 'GET',
@@ -111,19 +111,29 @@
 			    console.log(response)
 				if(response){
 				    console.log(response)
-					var html = "<table class='table faqGrid'><tr><th class='hidden'>Title</th><th>Person's Details</th><th>Question</th><th>Answer</th><th>Actions</th></tr>";
+					var html = "<table class='table faqGrid'><tr><th class='hidden'>Title</th><th>Person's Details</th><th>Request</th><th>Actions</th></tr>";
 					for(var index=0;index<response.length;index++){
+
 						html += "<tr><td class='hidden'>"  + response[index]["question"] + "</td>" +
 								"<td title='Tooltip'>" + putLineBreak(response[index]["name"]) +
                                 "<br>"+putLineBreak(response[index]["phone"])+
                                 "<br>"+putLineBreak(response[index]["email"])+
-                                "<br>"+putLineBreak(response[index]["address"])+
+                                "<br>"+putLineBreak(response[index]["createdDate"])+
                                 "</td>" +
-								"<td title='Tooltip'>" + putLineBreak(response[index]["question"]) + "</td>" +
-								"<td title='Tooltip'>" + putLineBreak(response[index]["answer"]) + "</td><td>" +
-								"<a data-id='"+ response[index]["id"] +"' id='editfaq"   + response[index]["id"] + "' onclick='faqEditClicked(this);'>Reply</a> | " +
-								"<a data-id='"+ response[index]["id"] +"' id='deletefaq" + response[index]["id"] + "' onclick='faqDeleteClicked(this);'>Delete</a> "  +
+								"<td title='Tooltip'><h4 style=\"text-align: center;\">" + putLineBreak(response[index]["subject"]) + "</h4><br>"+
+                                    putLineBreak(response[index]["message"])+ "</td>" +
+								"<td>";
+						    if (response[index]["status"] ==1){
+                                html +=	"<b data-id='"+ response[index]["id"] +"' id='editfaq"   + response[index]["id"] + "''>Accepted</b> " +
+                                    "</td></tr>";
+                            }else if (response[index]["status"] ==0){
+                            html +=	"<b data-id='"+ response[index]["id"] +"' id='editfaq"   + response[index]["id"] + "''>Rejected</b> " +
 								"</td></tr>";
+						    }else {
+                                html +=	"<a data-id='"+ response[index]["id"] +"' id='editfaq"   + response[index]["id"] + "' onclick='acceptPrayer(this);'>Accept</a> | " +
+                                    "<a data-id='"+ response[index]["id"] +"' id='deletefaq" + response[index]["id"] + "' onclick='rejectPrayer(this);'>Reject</a> "  +
+                                    "</td></tr>";
+                            }
 					}
 					if(response.length == 0){
 						html += "<tr><td colspan='3' class='center-text'><i>No records to display.</i></td></tr>";
@@ -135,35 +145,54 @@
 			dataType: 'json'
 		});
 	}
-	function faqEditClicked(sender){
-        $('#faq-form-container').show();
+	function acceptPrayer(sender){
+        var requestId = $(sender).data("id");
+        console.log(requestId,name)
+        var condition = confirm("Are you sure you want to accept the prayer request?");
+	    if (condition!=true){
+	        return true
+        }
+        var link =  __BASE_PATH + 'prayerrequest/saveRequest/';
+            $.ajax({
+                type: 'POST',
+                url: link,
+                data : { "id" : requestId ,"status" : 1,"sendEmail" :true},
+                success: function(response){
+                    if(response){
+                        showMessage("Your data has been saved successfully.");
+                        clearfaq();
+                        loadfaq();
+                        $('#faq-form-container').hide();
 
-        document.getElementById("faq-form-container").style.display = "show";
-        var faqId = $(sender).data("id");
-		var faq = $(sender).parents("tr").children("td:nth-child(1)").html();
-		var question = $(sender).parents("tr").children("td:nth-child(1)").html();
-		var answer = $(sender).parents("tr").children("td:nth-child(4)").html();
-		console.log(faqId,question,answer)
-		$("#faqId").val(faqId);
-		$("#question").val(question);
-		$("#answer").val(answer);
-		$(window).scrollTop(0);
+                    }
+                },
+                dataType: 'json'
+            });
+
 	}
-	function faqDeleteClicked(sender){
-		var link =  __BASE_PATH + 'faq/deleteFAQ/?id=' + $("#"+sender.id).data("id");
-		if(confirm("Are you certain that you want to delete this Q & A?")){
-			$.ajax({
-				type: 'GET',
-				url: link,
-				success: function(response){					
-					if(response){
-						clearfaq();
-						loadfaq();
-					}
-				},
-				dataType: 'json'
-			});
-		}
+	function rejectPrayer(sender){
+        var requestId = $(sender).data("id");
+        console.log(requestId,name)
+        var condition = confirm("Are you sure you want to reject the prayer request ?");
+        if (condition!=true){
+            return true
+        }
+        var link =  __BASE_PATH + 'prayerrequest/saveRequest/';
+        $.ajax({
+            type: 'POST',
+            url: link,
+            data : { "id" : requestId ,"status" : 0,"sendEmail" :true},
+            success: function(response){
+                if(response){
+                    showMessage("Your data has been saved successfully.");
+                    clearfaq();
+                    loadfaq();
+                    $('#faq-form-container').hide();
+
+                }
+            },
+            dataType: 'json'
+        });
 	}
 	$(document).ready(function(){
 		loadfaq();

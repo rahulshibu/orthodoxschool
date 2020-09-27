@@ -93,6 +93,8 @@
                        class="list-group-item <?php echo ($this->getControllerName() == "Faq") ? "active" : ""; ?>">FAQ</a>
                     <a href="<?php echo $BASE_PATH . 'question/index/'; ?>"
                        class="list-group-item <?php echo ($this->getControllerName() == "Question") ? "active" : ""; ?>">Bible Q & A</a>
+                    <a href="<?php echo $BASE_PATH . 'prayerrequest/index/'; ?>"
+                       class="list-group-item <?php echo ($this->getControllerName() == "PrayerRequest") ? "active" : ""; ?>">Prayer Requests</a>
                 </div>
             </div>
             <div class="col-md-10">

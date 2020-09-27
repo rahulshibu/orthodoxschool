@@ -103,6 +103,14 @@ $route->add('/question/', "getQuestionDetailsById",["httpVerb" => "get"]);
 $route->add('/question/', "deleteQuestion",        ["httpVerb" => "get"]);
 
 
+$route->add('/prayerrequest/', "index",                      ["httpVerb" => "get"]);
+$route->add('/prayerrequest/', "saveRequest",          ["httpVerb" => "post"]);
+$route->add('/prayerrequest/', "requestPrayer",          ["httpVerb" => "post"]);
+$route->add('/prayerrequest/', "getRequest",           ["httpVerb" => "get"]);
+$route->add('/prayerrequest/', "getRequestDetailsById",["httpVerb" => "get"]);
+$route->add('/prayerrequest/', "deleteRequest",        ["httpVerb" => "get"]);
+
+
 
 // Admin
 
