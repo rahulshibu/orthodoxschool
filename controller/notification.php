@@ -28,8 +28,11 @@ class Notification extends AuthController {
 		$id            = $faq->save($_POST);
 		$isSuccess     = ($id > 0);
         $data = ['body'=>$_POST['description'],'title'=>$_POST['title']];
-        FCM::pushNotification($data);
-		return $this->renderJson(["isSuccess" => $isSuccess, "id" => $id]);
+
+        if ($_POST['id']<=0)
+            FCM::pushNotification($data);
+
+        return $this->renderJson(["isSuccess" => $isSuccess, "id" => $id]);
 	}
 	
 	public function getNotification() {
