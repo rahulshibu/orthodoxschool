@@ -30,3 +30,20 @@ CREATE TABLE `orthodox_obs`.`prayer_request` (
   `createdDate` DATETIME NULL DEFAULT NULL,
   `updatedDate` DATETIME NULL DEFAULT NULL,
   PRIMARY KEY (`id`));
+
+  CREATE TABLE `orthodox_obs`.`notification` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `title` VARCHAR(300) NULL DEFAULT NULL,
+  `description` VARCHAR(1000) NULL DEFAULT '',
+  `createdDate` DATETIME NULL DEFAULT NULL,
+  `updatedDate` DATETIME NULL DEFAULT NULL,
+  PRIMARY KEY (`id`));
+
+  CREATE TABLE `orthodox_obs`.`fcm` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `unique_id` VARCHAR(200) NULL DEFAULT null,
+  `fcm` VARCHAR(300) NULL DEFAULT '',
+  `createdDate` DATETIME NULL DEFAULT NULL,
+  `updatedDate` DATETIME NULL DEFAULT NULL,
+  PRIMARY KEY (`id`));
+
