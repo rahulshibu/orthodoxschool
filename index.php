@@ -114,6 +114,7 @@ $route->add('/notification/', "index",                      ["httpVerb" => "get"
 $route->add('/notification/', "saveNotification",          ["httpVerb" => "post"]);
 $route->add('/notification/', "getNotification",           ["httpVerb" => "get"]);
 $route->add('/notification/', "getNotificationDetailsById",["httpVerb" => "get"]);
+$route->add('/notification/', "getNotificationById",["httpVerb" => "get"]);
 $route->add('/notification/', "deleteNotification",        ["httpVerb" => "get"]);
 
 $route->add('/fcm/', "saveToken",        ["httpVerb" => "post"]);

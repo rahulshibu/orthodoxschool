@@ -27,7 +27,8 @@ class Notification extends AuthController {
 		$faq = new NotificationModel();
 		$id            = $faq->save($_POST);
 		$isSuccess     = ($id > 0);
-        $data = ['body'=>$_POST['description'],'title'=>$_POST['title']];
+		$payload = ['news_id'=>$id,'description'=>$_POST['description'],'title'=>$_POST['title']];
+        $data = ['body'=>$_POST['description'],'title'=>$_POST['title'],'data'=>['news_id'=>$id],'payload'=>$payload];
 
         if ($_POST['id']<=0)
             FCM::pushNotification($data);
@@ -45,6 +46,11 @@ class Notification extends AuthController {
 	public function getNotificationDetailsById() {
 		$churchHistory = new NotificationModel();
 		$response      = $churchHistory->getDetailsById($_GET["id"]);
+		return $this->renderJson($response);
+	}
+	public function getNotificationById() {
+		$churchHistory = new NotificationModel();
+		$response      = $churchHistory->getDetailsById($_GET["news_id"]);
 		return $this->renderJson($response);
 	}
 	
