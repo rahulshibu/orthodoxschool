@@ -96,7 +96,7 @@
                     <a href="<?php echo $BASE_PATH . 'prayerrequest/index/'; ?>"
                        class="list-group-item <?php echo ($this->getControllerName() == "PrayerRequest") ? "active" : ""; ?>">Prayer Requests</a>
                     <a href="<?php echo $BASE_PATH . 'notification/index/'; ?>"
-                       class="list-group-item <?php echo ($this->getControllerName() == "Notification") ? "active" : ""; ?>">Notifications</a>
+                       class="list-group-item <?php echo ($this->getControllerName() == "Notification") ? "active" : ""; ?>">News and Events</a>
                 </div>
             </div>
             <div class="col-md-10">

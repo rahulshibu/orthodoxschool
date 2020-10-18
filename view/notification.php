@@ -1,4 +1,4 @@
-<h3 class="title-style">Notification</h3>
+<h3 class="title-style">News and Events</h3>
 <div class="row">
 	<div class="col-lg-12">
 		<div class="row" id="notification-form-container">
@@ -52,7 +52,7 @@
 		</div>
 		<div class="row">
 			<div class="col-lg-12"><br/>
-				<label>Notification</label>
+				<label>News and Events</label>
 				<div id="notificationGridWrapper">
 					Loading...
 				</div><br/><br/>
