@@ -126,7 +126,7 @@
 								"</td></tr>";
 					}
 					if(response.length == 0){
-						html += "<tr><td colspan='3' class='center-text'><i>No records to display.</i></td></tr>";
+						html += "<tr><td colspan='4' class='center-text'><i>No records to display.</i></td></tr>";
 					}
 					html += "</table>";
 					$("#faqGridWrapper").html(html);
@@ -150,7 +150,7 @@
 		$(window).scrollTop(0);
 	}
 	function faqDeleteClicked(sender){
-		var link =  __BASE_PATH + 'faq/deleteFAQ/?id=' + $("#"+sender.id).data("id");
+		var link =  __BASE_PATH + 'question/deleteQuestion/?id=' + $("#"+sender.id).data("id");
 		if(confirm("Are you certain that you want to delete this Q & A?")){
 			$.ajax({
 				type: 'GET',
