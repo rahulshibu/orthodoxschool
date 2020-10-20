@@ -39,7 +39,12 @@ try {
     $mail->Username = 'schooloforthodoxbible@gmail.com';
     $mail->Password = 'orthodoxbible89';
     $mail->SetFrom('orthodoxbibleschool@gmail.com', 'Orthodox Bible School');
-    $mail->AddReplyTo("orthodoxbibleschool@gmail.com", "Orthodox Bible School");
+    if (empty($_POST['replyto'])){
+        $mail->AddReplyTo("orthodoxbibleschool@gmail.com", "Orthodox Bible School");
+
+    }else{
+        $mail->AddReplyTo($_POST['replyto']);
+    }
     $mail->Subject = $subject;
     $mail->Body = $message;
     $mail->AltBody = $message;

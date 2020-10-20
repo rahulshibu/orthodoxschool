@@ -53,6 +53,9 @@ class Question extends AuthController
         }
         $id = $Question->save($_POST);
         $isSuccess = ($id > 0);
+        $email = $this->adminEmailContent($_POST['name'],$_POST['email'],$_POST['phone'],$_POST['question']);
+        Email::sendMail('rahulshibu321@gmail.com', 'New Question From '.$_POST['name'], $email,$_POST['email']);
+
         return $this->renderJson(["isSuccess" => $isSuccess, "id" => $id]);
     }
 
@@ -99,5 +102,29 @@ class Question extends AuthController
             </html>";
         return $email;
     }
+    public function adminEmailContent($name,$email,$phone, $question)
+    {
+        $email = "<!DOCTYPE html>
+            <html>
+            <body>
+
+            <p>Hi,</p>
+            <p>We have got a new question from ".$name." </p>
+
+            <p>Name : " . $name . "</p>
+            <p>Question : " . $question . "</p>
+            <p>Email : " . $email . "</p>
+            <p>Phone : " . $phone . "</p>
+
+            <p>Regards,<br> Orthodox Bible School</p>
+
+
+
+            </body>
+            </html>";
+        return $email;
+    }
+
+
 }
 ?>

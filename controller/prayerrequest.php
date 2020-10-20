@@ -60,6 +60,10 @@ class PrayerRequest extends AuthController
 
         $id = $Question->save($_POST);
         $isSuccess = ($id > 0);
+
+        $email = $this->adminEmailContent($_POST['name'],$_POST['email'],$_POST['phone'],$_POST['subject'],$_POST['message']);
+        Email::sendMail('rahulshibu321@gmail.com', 'New Prayer Request From '.$_POST['name'], $email,$_POST['email']);
+
         return $this->renderJson(["isSuccess" => $isSuccess, "id" => $id]);
     }
 
@@ -98,6 +102,30 @@ class PrayerRequest extends AuthController
             <p>Hi " . $name . ",</p>
 
             <p>Your prayer request <b>" . $request . "</b> is ".$msg."</p>
+
+            <p>Regards,<br> Orthodox Bible School</p>
+
+
+
+            </body>
+            </html>";
+        return $email;
+    }
+
+    public function adminEmailContent($name,$email,$phone, $subject,$message)
+    {
+        $email = "<!DOCTYPE html>
+            <html>
+            <body>
+
+            <p>Hi,</p>
+            <p>We have got a new prayer request from ".$name." </p>
+
+            <p>Name : " . $name . "</p>
+            <p>Subject : " . $subject . "</p>
+            <p>Message : " . $message . "</p>
+            <p>Email : " . $email . "</p>
+            <p>Phone : " . $phone . "</p>
 
             <p>Regards,<br> Orthodox Bible School</p>
 

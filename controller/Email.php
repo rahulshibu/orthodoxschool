@@ -19,7 +19,7 @@ class Email
 //        return "Mail send sucessfully";
 //    }
 
-    public static function sendMail($email,$subject,$link){
+    public static function sendMail($email,$subject,$link,$replyto=null){
         $curl = curl_init();
         $url = self::URL().'/obs/mail/index.php';
 
@@ -32,7 +32,7 @@ class Email
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => "POST",
-            CURLOPT_POSTFIELDS => array('email' => $email,'subject' => $subject,'link' => $link,'type' => '1'),
+            CURLOPT_POSTFIELDS => array('email' => $email,'subject' => $subject,'link' => $link,'type' => '1','replyto'=>$replyto),
             CURLOPT_HTTPHEADER => array(
                 "Cookie: PHPSESSID=ggcj82ocvhbktrqsfa83qkq7r1"
             ),
