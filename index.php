@@ -123,6 +123,7 @@ $route->add('/newcalendar/', "index",             ["httpVerb" => "get"]);
 $route->add('/newcalendar/', "getCalenderById",             ["httpVerb" => "get"]);
 $route->add('/newcalendar/', "saveEvent",         ["httpVerb" => "post"]);
 $route->add('/newcalendar/', "getCalendarByMonth",["httpVerb" => "get"]);
+$route->add('/newcalendar/', "getCalender",["httpVerb" => "get"]);
 $route->add('/newcalendar/', "deleteEvent",       ["httpVerb" => "get"]);
 
 // Admin

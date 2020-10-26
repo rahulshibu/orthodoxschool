@@ -30,6 +30,11 @@ class NewCalendarModel extends BaseModel {
 		$record = $this->db->query($query);
 		return $record;
 	}
+	public function getCalender(){
+            $query = "SELECT * FROM new_calender";
+		$record = $this->db->query($query);
+		return $record;
+	}
 	
 	public function save($calendar){
 		$id = 0;

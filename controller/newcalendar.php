@@ -32,6 +32,11 @@ class NewCalendar extends AuthController {
 		$response = $calendar->getDetailsByMonth($_GET["month"], $_GET["year"]);
 		return $this->renderJson($response);
 	}
+	public function getCalender() {
+		$calendar = new NewCalendarModel();
+		$response = $calendar->getCalender();
+		return $this->renderJson($response);
+	}
 
     public function getCalenderById() {
         $calendar = new NewCalendarModel();
