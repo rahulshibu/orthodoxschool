@@ -83,11 +83,11 @@
 						class="list-group-item <?php echo ($this->getControllerName() == "BibleWords") ? "active" : ""; ?>">Bible Words</a>
                      <a href="<?php echo $BASE_PATH . 'faith/index/'; ?>" 
 						class="list-group-item <?php echo ($this->getControllerName() == "Faith") ? "active" : ""; ?>">Faith Of Church</a>
-					<a href="<?php echo $BASE_PATH . 'calendar/index/'; ?>" 
-						class="list-group-item <?php echo ($this->getControllerName() == "Calendar") ? "active" : ""; ?>">Calendar</a>
-					<a href="<?php echo $BASE_PATH . 'saint/index/'; ?>" 
+					<a href="<?php echo $BASE_PATH . 'newcalendar/index/'; ?>"
+						class="list-group-item <?php echo ($this->getControllerName() == "NewCalendar") ? "active" : ""; ?>">Calendars</a>
+					<a href="<?php echo $BASE_PATH . 'saint/index/'; ?>"
 						class="list-group-item <?php echo ($this->getControllerName() == "Saint") ? "active" : ""; ?>">Saints</a>
-					<a href="<?php echo $BASE_PATH . 'churchhistory/index/'; ?>" 
+					<a href="<?php echo $BASE_PATH . 'churchhistory/index/'; ?>"
 						class="list-group-item <?php echo ($this->getControllerName() == "ChurchHistory") ? "active" : ""; ?>">Church History</a>
                     <a href="<?php echo $BASE_PATH . 'faq/index/'; ?>"
                        class="list-group-item <?php echo ($this->getControllerName() == "Faq") ? "active" : ""; ?>">FAQ</a>

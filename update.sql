@@ -47,3 +47,14 @@ CREATE TABLE `orthodox_obs`.`prayer_request` (
   `updatedDate` DATETIME NULL DEFAULT NULL,
   PRIMARY KEY (`id`));
 
+
+CREATE TABLE `orthodox_obs`.`new_calender` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(500) NULL DEFAULT null,
+  `description` VARCHAR(1000) NULL DEFAULT '',
+  `venue` VARCHAR(200) NULL DEFAULT '',
+  `startDate` DATETIME NULL DEFAULT NULL,
+  `endDate` DATETIME NULL DEFAULT NULL,
+  `createdDate` DATETIME NULL DEFAULT NULL,
+  `updatedDate` DATETIME NULL DEFAULT NULL,
+  PRIMARY KEY (`id`));
