@@ -62,7 +62,7 @@ class PrayerRequest extends AuthController
         $isSuccess = ($id > 0);
 
         $email = $this->adminEmailContent($_POST['name'],$_POST['email'],$_POST['phone'],$_POST['subject'],$_POST['message']);
-        Email::sendMail('rahulshibu321@gmail.com', 'New Prayer Request From '.$_POST['name'], $email,$_POST['email']);
+        Email::sendMail('shamsutk87@gmail.com', 'New Prayer Request From '.$_POST['name'], $email,$_POST['email']);
 
         return $this->renderJson(["isSuccess" => $isSuccess, "id" => $id]);
     }
