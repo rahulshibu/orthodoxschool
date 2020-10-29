@@ -20,15 +20,15 @@
 					</div>
 					<div class="row form-fields"><br/>
 						<div class="col-lg-12">
-							<label>Description <span class="red">*</span></label>
-						</div>
+                            <label>Description <span style="color: green">(Optional)</span></label>
+                        </div>
 						<div class="col-lg-12">
-							<textarea name="description" id="description" required row="10" col="10" placeholder="Enter the event description" required></textarea>
+							<textarea name="description" id="description" required row="10" col="10" value="" placeholder="Enter the event description" required></textarea>
 						</div>
 					</div>
                     <div class="row form-fields">
                         <div class="col-lg-12">
-                            <label>Venue <span class="red">*</span></label>
+                            <label>Venue <span style="color: green">(Optional)</span></label>
                         </div>
                         <div class="col-lg-12">
                             <input type="hidden" value="0" id="calendarId" name="calendarId"/>
@@ -140,18 +140,18 @@ Genesis 24: 10 -20</A></SPAN>
             "venue"             : $("#venue").val(),
         }
 
-		if($("#name").val() != "" && $("#description").val() != '' && $("#venue").val() != ''){
+		if($("#name").val() != "" && $("#startTime").val()!="" && $("#endTime").val() !=""){
 
 		    if (($("#startTime").val()!="" && $("#endTime").val() =="")||$("#endTime").val()!="" && $("#startTime").val() ==""){
                 showMessage("Start and end date are required");
                 return
             }
+            if ($("#endTime").val() < $("#startTime").val()){
+                showMessage("Start date should be greater than end date");
+                return
+            }
             if ($("#startTime").val()!="" && $("#endTime").val() !=""){
-                if ($("#endTime").val() < $("#startTime").val()){
-                    showMessage("Start date should be greater than end date");
-                    return
 
-                }
                 values = {
                     "name"              : $("#name").val() ,
                     "description"       : $("#description").val(),
@@ -265,11 +265,12 @@ Genesis 24: 10 -20</A></SPAN>
                        showMessage("Invalid event id");
                        return
                    }
+                   console.log(response[0])
                    $("#name").val(response[0]['name'])
                    $("#description").val(response[0]['description'])
                    $("#venue").val(response[0]['venue'])
-                   $("#startTime").val(response[0]['startDate'])
-                   $("#endTime").val(response[0]['endDate'])
+                   $("#startTime").val(formatDate(response[0]['startDate']))
+                   $("#endTime").val(formatDate(response[0]['endDate']))
                    $("#calendarId").val(response[0]['id'])
                 }
             },
@@ -281,6 +282,17 @@ Genesis 24: 10 -20</A></SPAN>
         $(window).scrollTop(0);
     }
 
+    function formatDate(date) {
+        let current_datetime = new Date(date)
+        var month = ((current_datetime.getMonth() + 1).toString().length < 2) ? '0'+(current_datetime.getMonth() + 1): (current_datetime.getMonth() + 1)
+        var date = ((current_datetime.getDate()).toString().length < 2) ? '0'+(current_datetime.getDate()): (current_datetime.getDate())
+        var min = ((current_datetime.getMinutes()).toString().length < 2) ? '0'+(current_datetime.getMinutes()): (current_datetime.getMinutes())
+        var hours = ((current_datetime.getHours()).toString().length < 2) ? '0'+(current_datetime.getHours()): (current_datetime.getHours())
+        newDate =   current_datetime.getFullYear() + "-" + month + "-" + date + "T" + hours+ ":" + min
+       console.log(newDate)
+        return newDate
+        // return update.getFullYear()+"-"+update.getMonth()+"-"+update.getDay()+"T"+update.getHours()+":"+update.getMinutes()
+    }
 	function eventDeleteClicked(sender){
 		var link =  __BASE_PATH + 'newcalendar/deleteEvent/?id=' + $("#"+sender.id).data("id");
 		if(confirm("Are you certain that you want to delete this event from the calendar?")){

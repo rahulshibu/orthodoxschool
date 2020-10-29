@@ -51,7 +51,7 @@ class PrayerRequest extends AuthController
     public function requestPrayer()
     {
         $Question = new PrayerRequestModel();
-        if (!isset($_POST['email']) || !isset($_POST['name']) || !isset($_POST['subject'])||!isset($_POST['message']) || empty($_POST['email']) || empty($_POST['message'])|| empty($_POST['name']) || empty($_POST['subject'])) {
+        if (!isset($_POST['email']) || !isset($_POST['name']) ||!isset($_POST['message']) || empty($_POST['email']) || empty($_POST['message'])|| empty($_POST['name'])) {
             return $this->rendorError(['error' => "Mandatory fields required"]);
         }
         if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {

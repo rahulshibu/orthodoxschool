@@ -33,17 +33,19 @@ class FCM extends AuthController {
     public static function pushNotification($data){
 	    $fcm = new FCMModel();
         $fcmtokens=$fcm->get();
+        $ids = array();
         foreach ($fcmtokens as $fcmtoken){
             $data['registration_ids'][]=$fcmtoken['fcm'];
+            $ids[]= $fcmtoken['id'];
         }
         $data['collapse_key']="type_a";
         $data['notification']=$data;
-        self::sendNotification($data);
+        self::sendNotification($data,$ids);
 
     }
-    private static function sendNotification($data){
+    private static function sendNotification($data,$ids){
 
-
+//        var_dump($ids);die;
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
@@ -65,6 +67,23 @@ class FCM extends AuthController {
         $response = curl_exec($curl);
 
         curl_close($curl);
+        $result = json_decode($response,true);
+        $delKys = array();
+        if ($result['failure']>0){
+            foreach ($result['results'] as $key=>$result){
+                if (isset($result['error'])){
+                $delKys[]= $ids[$key];
+
+                }
+            }
+            if (count($delKys)){
+                $idArray = implode(', ', $delKys);
+                $fcm = new FCMModel();
+                $fcm->delete($idArray);
+
+            }
+
+        }
 
 
     }

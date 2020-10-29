@@ -1,0 +1,7 @@
+{"email":"rahulshibu321@gmail.com","Orthodox Bible School Prayer Request Accepted":"Orthodox Bible School Prayer Request Accepted","status":"{\"success\":true,\"message\":\"Your mail was send successfully\"}\n"}
+{"email":"rahulshibu321@gmail.com","Orthodox Bible School Prayer Request Accepted":"Orthodox Bible School Prayer Request Accepted","status":"{\"success\":true,\"message\":\"Your mail was send successfully\"}\n"}
+{"email":"rahulshibu321@gmail.com","New Question From Rahul":"New Question From Rahul","status":"{\"success\":true,\"message\":\"Your mail was send successfully\"}\n"}
+{"email":"rahulshibu321@gmail.com","New Question From Rahul":"New Question From Rahul","status":"{\"success\":true,\"message\":\"Your mail was send successfully\"}\n"}
+{"email":"rahulshibu321@gmail.com","New Prayer Request From Rahul":"New Prayer Request From Rahul","status":"{\"success\":true,\"message\":\"Your mail was send successfully\"}\n"}
+{"email":"rahulshibu321@gmail.com","New Prayer Request From Rahul":"New Prayer Request From Rahul","status":"{\"success\":true,\"message\":\"Your mail was send successfully\"}\n"}
+{"email":"rahulshibu321@gmail.com","New Prayer Request From Rahul":"New Prayer Request From Rahul","status":"{\"success\":true,\"message\":\"Your mail was send successfully\"}\n"}

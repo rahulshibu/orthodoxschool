@@ -38,8 +38,8 @@ class FCMModel extends BaseModel {
 		return $id;
 	}
 
-	public function delete($id=0){
-		$query = "DELETE FROM fcm WHERE id = " . $id;
+	public function delete($id){
+		$query = "DELETE FROM fcm WHERE id in (" . $id.")";
 		$this->db->query($query);
 		return True;
 	}
