@@ -45,6 +45,10 @@ try {
     }else{
         $mail->AddReplyTo($_POST['replyto']);
     }
+    if (!empty($_POST['cc'])){
+        $mail->addCC($_POST['cc']);
+    }
+
     $mail->Subject = $subject;
     $mail->Body = $message;
     $mail->AltBody = $message;
